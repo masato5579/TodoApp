@@ -37,13 +37,12 @@ const App = () => {
         )
     }
 
-    const addTodos = (content, hour, counter) => {
+    const addTodos = (content, hour) => {
         setTodos(
             [
                 ...todos, {
                     content: content,
                     hour: hour,
-                    counter: counter,
                     id: nanoid(),
                     isDone: false
                 }

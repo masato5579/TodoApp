@@ -1,4 +1,5 @@
 import React from 'react'
+import Timer from './Timer'
 
 const Item = ({ todo, changeIsDone, deleteTodo }) => {
 
@@ -12,7 +13,7 @@ const Item = ({ todo, changeIsDone, deleteTodo }) => {
             }>{todo.content}</span>
             <button onClick={() => { deleteTodo(todo.id) }}>削除</button>
             <p id="hour">残り{todo.hour}時間までに終わらせる</p>
-            <p id="elapsedTime">経過時間{todo.counter}</p>
+            <Timer todo={todo} />
         </li>
     )
 }

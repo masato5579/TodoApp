@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 
 
@@ -5,28 +6,16 @@ const Form = ({ addTodos, allDeleteTodo }) => {
     const ThingsTodo = document.getElementById('ThingsTodo')
     const Hour = document.getElementById('hour')
     const [value, setValue] = useState('')
-    const [hour, SetHour] = useState('')
-    let counter = 0;
-
-    const timerStart = () => {
-        setInterval(() => {
-
-            counter++;
-            console.log(counter)
-
-        }, 1000);
-    }
+    const [hour, setHour] = useState('')
 
 
 
     const handleSubmit = (e) => {
-
         e.preventDefault()
         if (!value) {
             alert('文字を入力してください')
         } else {
-            timerStart()
-            addTodos(value, hour, counter)
+            addTodos(value, hour)
             ThingsTodo.value = ''
             Hour.value = ''
         }
@@ -35,7 +24,6 @@ const Form = ({ addTodos, allDeleteTodo }) => {
 
     return (
         <>
-
             <form onSubmit={handleSubmit}>
                 <span>タスク</span>
                 <input
@@ -44,6 +32,7 @@ const Form = ({ addTodos, allDeleteTodo }) => {
                         setValue(e.target.value)
                     }}
                     id='ThingsTodo'
+                    autoComplete="off"
                 />
             </form>
 
@@ -52,9 +41,10 @@ const Form = ({ addTodos, allDeleteTodo }) => {
                 <input
                     type="text"
                     onChange={e => {
-                        SetHour(e.target.value)
+                        setHour(e.target.value)
                     }}
                     id='hour'
+                    autoComplete="off"
                 />
                 <span>時間</span>
                 <p>までにやる</p>
