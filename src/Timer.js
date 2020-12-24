@@ -9,7 +9,7 @@ const Timer = () => {
     useEffect(() => {
         const interval = setInterval(() => setTime(time => time + 1), 1000)
         return () => clearInterval(interval)
-    }, [time])
+    }, [])
 
 
     if (time === 60) {
@@ -22,9 +22,13 @@ const Timer = () => {
         setTime(0)
     }
 
+    if (hours === 24) {
+        alert('24時間が経過しました')
+    }
+
     return (
         <>
-            <p>経過時間　{hours}　時間　{minutes}　分　{time}　秒です</p>
+            <p>経過時間　{hours}　時間　{minutes}　分　{time}　秒</p>
         </>
     )
 }

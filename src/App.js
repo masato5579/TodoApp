@@ -5,13 +5,15 @@ import List from './List'
 
 import { nanoid } from 'nanoid'
 
+import styled from 'styled-components'
+
 
 const App = () => {
 
 
     const [todos, setTodos] = useState([
         {
-            content: '朝起きる',
+            content: '宿題をやる',
             hour: 2,
             id: nanoid(),
             isDone: false
@@ -60,18 +62,36 @@ const App = () => {
     }
 
 
-
-
-
-
-
     return (
         <>
-            <h1>App </h1>
-            <Form addTodos={addTodos} allDeleteTodo={allDeleteTodo} />
-            <List todos={todos} changeIsDone={changeIsDone} deleteTodo={deleteTodo} />
+            <WRAP>
+                <TITLE>『To-Do List With Timer』</TITLE>
+                <FLEX>
+                    <Form addTodos={addTodos} allDeleteTodo={allDeleteTodo} />
+                    <List todos={todos} changeIsDone={changeIsDone} deleteTodo={deleteTodo} />
+                </FLEX>
+            </WRAP>
         </>
     )
 }
 
 export default App
+
+const WRAP = styled.section`
+    padding:20px 0;
+`
+
+const FLEX = styled.div`
+    display:flex;
+    justify-content:space-between;
+    width:95%;
+    margin:0 auto;
+    margin-top:50px;
+    margin-bottom:50px;
+`
+
+const TITLE = styled.h1`
+    text-align:center;
+    margin:0 0 60px;
+`
+
