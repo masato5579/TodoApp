@@ -6,12 +6,14 @@ import styled from 'styled-components'
 
 
 const List = ({ todos, changeIsDone, deleteTodo }) => {
+
+
     return (
         <>
             <LISTSECTION>
                 <TITLE>LIST</TITLE>
                 <LIST>
-                    <ul>
+                    <ul id='listUl'>
                         {
                             todos.map((todo) => {
                                 return (
@@ -41,6 +43,10 @@ const LIST = styled.section`
     border-radius:10px;
     max-height:620px;
     overflow:scroll;
+    #nolist{
+        text-align: center;
+        font-size:1.2rem;
+    }
 `
 
 

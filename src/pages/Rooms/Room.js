@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-
-
+import React, { useState, useContext } from 'react'
+import firebase from '../../config/firebase'
 import Form from './Form'
 import List from './List'
 
 import { nanoid } from 'nanoid'
 
 import styled from 'styled-components'
+
+import { AuthContext } from '../../AuthService'
 
 
 const Room = () => {
@@ -62,11 +63,17 @@ const Room = () => {
         setTodos(todos.filter((todo) => todo.id === id))
     }
 
+    const user = useContext(AuthContext)
+
 
     return (
         <>
             <WRAP>
                 <TITLE>『To-Do List With Timer』</TITLE>
+                <p>{user.displayName}さん、こんにちは</p>
+                <LOGOUT>
+                    <button onClick={() => firebase.auth().signOut()}>ログアウトする</button>
+                </LOGOUT>
                 <FLEX>
                     <Form addTodos={addTodos} allDeleteTodo={allDeleteTodo} />
                     <List todos={todos} changeIsDone={changeIsDone} deleteTodo={deleteTodo} />
@@ -93,6 +100,17 @@ const FLEX = styled.div`
 
 const TITLE = styled.h1`
     text-align:center;
-    margin:0 0 60px;
+`
+
+const LOGOUT = styled.div`
+    text-align:right;
+    width:90%;
+    margin:0 auto;
+    button{
+        font-size:1rem;
+        color:#fff;
+        background-color:#4103ff;
+        padding:5px 10px;
+    }
 `
 
