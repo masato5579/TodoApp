@@ -22,7 +22,8 @@ h1{
 }
 
 #root{
-    background-color:#026FB4;
+    /* background-color:#026FB4; */
+    background-color: rgb(96 149 255);
     width:90%;
 }
 

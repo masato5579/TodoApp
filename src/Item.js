@@ -1,5 +1,6 @@
 import React from 'react'
 import Timer from './Timer'
+import Content from './Content'
 
 import styled from 'styled-components'
 
@@ -22,10 +23,7 @@ const Item = ({ todo, changeIsDone, deleteTodo }) => {
                     <p>制限時間:<span>{todo.hour}</span>時間</p>
                     <Timer todo={todo} />
                 </TIME>
-                <TEXT>
-                    <h3>内容</h3>
-                    <textarea placeholder="ここに内容の詳細をかきましょう"></textarea>
-                </TEXT>
+                <Content></Content>
                 <BUTTON>
                     <button onClick={() => { deleteTodo(todo.id) }}>このLISTを削除する</button>
                 </BUTTON>
