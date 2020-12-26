@@ -5,6 +5,7 @@ import { AuthContext } from './AuthService'
 const LoggedInRoute = ({ component: Component, ...rest }) => {
     const user = useContext(AuthContext)
 
+
     return (
         <Route
             {...rest}

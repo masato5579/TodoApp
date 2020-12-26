@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 
-
 import styled from 'styled-components'
 
-
 const Content = () => {
-
     const [content, setContent] = useState(false)
 
+    //閉じる・開く
     const toggle = () => {
         setContent(!content)
     }
@@ -15,14 +13,14 @@ const Content = () => {
 
     return (
         <>
-            <TEXT>
+            <CONTENT>
                 <h3>内容</h3>
                 <OPENANDCLOSE>
                     <BUTTONS onClick={() => { toggle() }}
                         style={
                             { opacity: content ? '1.0' : '0.6' }
                         }>
-                        <p>内容を開く</p>
+                        <p id="openContent">内容を開く</p>
                         <div id="clickopen">
                             <span id="clickopenLeft"></span>
                             <span id="clickopenRight"></span>
@@ -31,14 +29,16 @@ const Content = () => {
                 </OPENANDCLOSE>
                 <textarea placeholder="ここに内容の詳細をかきましょう" style={
                     { display: content ? 'block' : 'none' }}></textarea>
-            </TEXT>
+            </CONTENT>
         </>
     )
 }
 
 export default Content
 
-const TEXT = styled.div`
+
+//CONTENT全体を囲む
+const CONTENT = styled.section`
     textarea{
         width:100%;
         margin-top:10px;
@@ -46,19 +46,22 @@ const TEXT = styled.div`
     }
 `
 
+//開く・閉じる
 const OPENANDCLOSE = styled.div`
     h3{
         width:70%;
     }
 `
+
+//↓ボタン
 const BUTTONS = styled.a`
         display:flex;
-        width:20%;
+        width:100%;
         text-align:left;
         cursor:pointer;
         opacity:.6;
         #clickopen{
-            padding-left:10%;
+            padding-left:10px;
             #clickopenLeft{
                 display:inline-block;
                 height:2px;

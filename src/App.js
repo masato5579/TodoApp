@@ -1,11 +1,13 @@
 import React from 'react'
+import LoggedInRoute from './LoggedInRoute'
+import { AuthProvider } from './AuthService'
+
 
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Room from './pages/Rooms/Room'
-import LoggedInRoute from './LoggedInRoute'
 
-import { AuthProvider } from './AuthService'
+
 
 import {
     BrowserRouter as Router,

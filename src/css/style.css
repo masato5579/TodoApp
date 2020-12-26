@@ -1,3 +1,5 @@
+/* all */
+
 body{
     background-color:#89B1A8;
     box-sizing: border-box;
@@ -24,8 +26,8 @@ h1{
 #root{
     /* background-color:#026FB4; */
     background-color: rgb(96 149 255);
-    width:90%;
-}
+    width:98%;
+}   
 
 ul{
     padding:0;
@@ -40,4 +42,19 @@ ul{
 
 button{
     cursor: pointer;
+}
+
+
+/* ps */
+@media screen and (max-width:768px){
+    body{
+        font-size:12px;
+    }
+    h1{
+    font-size:25px;
+    }
+
+    #root{
+    width:100%;
+}
 }

@@ -4,8 +4,10 @@ import { Redirect } from 'react-router-dom'
 import firebase from '../config/firebase'
 
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 import 'firebase/auth'
+
 import { AuthContext } from '../AuthService'
 
 const Login = ({ history }) => {
@@ -35,10 +37,10 @@ const Login = ({ history }) => {
     return (
         <>
             <LOGIN>
-                <h1>To-Do List With Timer ログイン画面</h1>
+                <h1>To-Do List With Timer <br />ログイン画面</h1>
                 <form onSubmit={handleSubmit}>
                     <p>下記を入力するとログインすることができます。</p>
-                    <div class="inputs">
+                    <div className="inputs">
                         <label htmlFor='email'>メールアドレス</label>
                         <input
                             type='email'
@@ -50,7 +52,7 @@ const Login = ({ history }) => {
                             }}
                         />
                     </div>
-                    <div class="inputs">
+                    <div className="inputs">
                         <label htmlFor='password'>パスワード</label>
                         <input
                             type='password'
@@ -80,8 +82,11 @@ const LOGIN = styled.section`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    height:80vh;
+    height:100vh;
     font-size:1.2rem;
+    h1{
+        text-align:center
+    }
     form{
         width:40%;
         margin-top:30px;
@@ -95,6 +100,18 @@ const LOGIN = styled.section`
             }
         }
     }
+    ${media.between("medium", "large")`
+        form{
+            width:70%;
+        }
+    `}
+    ${media.lessThan('medium')`
+        font-size:1rem;
+        height:100vh;
+        form{
+            width:90%;
+        }
+    `}
 `
 
 const BUTTON = styled.div`
@@ -106,9 +123,22 @@ const BUTTON = styled.div`
         color:#fff;
         background-color:#4103ff;
         font-weight:bold;
+        :hover{
+            background-color:#fff;
+            color:#4103ff;
+        }
     }
+    ${media.lessThan('medium')`
+        button{
+            font-size:1.0rem;
+        }
+    `}
 `
 
 const NOLOGIN = styled.a`
     margin-top:30px;
+    :hover{
+        font-size:1.4rem;
+        color:#fff;
+    }
 `

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import firebase from '../config/firebase'
 
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const SignUp = ({ history }) => {
 
@@ -32,7 +33,7 @@ const SignUp = ({ history }) => {
     return (
         <>
             <SIGNUP>
-                <h1>To-Do List With Timer  会員登録</h1>
+                <h1>To-Do List With Timer <br /> 会員登録</h1>
                 <form form onSubmit={handleSubmit}>
                     <p>下記を入力することで会員登録を行うことができます。</p>
                     <div class="inputs">
@@ -72,7 +73,7 @@ const SignUp = ({ history }) => {
                         />
                     </div>
                     <BUTTON>
-                        <button type='submit'>会員登録して、『To-Do List With Timer』を利用する</button>
+                        <button type='submit'>会員登録して<br />『To-Do List With Timer』を利用する</button>
                     </BUTTON>
                 </form>
             </SIGNUP>
@@ -88,10 +89,13 @@ const SIGNUP = styled.section`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    height:80vh;
+    height:100vh;
     font-size:1.2rem;
+    h1{
+        text-align:center;
+    }
     form{
-        width:40%;
+        width:50%;
         margin-top:30px;
         .inputs{
             display:flex;
@@ -103,6 +107,18 @@ const SIGNUP = styled.section`
             }
         }
     }
+    ${media.between("medium", "large")`
+        form{
+            width:70%;
+        }
+    `}
+    ${media.lessThan('medium')`
+        font-size:1rem;
+        height:100vh;
+        form{
+            width:90%;
+        }
+    `}
 `
 
 const BUTTON = styled.div`
@@ -114,6 +130,15 @@ const BUTTON = styled.div`
         color:#fff;
         background-color:#4103ff;
         font-weight:bold;
+        :hover{
+            background-color:#fff;
+            color:#4103ff;
+        }
     }
+    ${media.lessThan('medium')`
+        button{
+            font-size:1.0rem;
+        }
+    `}
 
 `
