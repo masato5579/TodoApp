@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { nanoid } from 'nanoid'
+import firebase from '../../config/firebase'
 import { AuthContext } from '../../AuthService'
 
 import styled from 'styled-components'
 import media from "styled-media-query";
 
 
-import firebase from '../../config/firebase'
 
 import Form from './Form'
 import List from './List'
