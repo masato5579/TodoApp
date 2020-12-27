@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import media from "styled-media-query";
 
 
-
 import Form from './Form'
 import List from './List'
 
@@ -70,8 +69,12 @@ const Room = () => {
 
 
     //ログインユーザーの取得
+
     const user = useContext(AuthContext)
 
+
+    console.log('Roomの中')
+    console.log(user.displayName)
 
     return (
         <>

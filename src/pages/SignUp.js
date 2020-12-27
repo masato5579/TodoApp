@@ -4,6 +4,7 @@ import firebase from '../config/firebase'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
+
 const SignUp = ({ history }) => {
 
     const [email, setEmail] = useState('')
@@ -114,7 +115,6 @@ const SIGNUP = styled.section`
     `}
     ${media.lessThan('medium')`
         font-size:1rem;
-        height:100vh;
         form{
             width:90%;
         }

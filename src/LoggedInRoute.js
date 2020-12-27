@@ -5,13 +5,13 @@ import { AuthContext } from './AuthService'
 const LoggedInRoute = ({ component: Component, ...rest }) => {
     const user = useContext(AuthContext)
 
-
+    console.log(user)
     return (
         <Route
             {...rest}
             render={props =>
                 user ? (
-                    <Component{...props} />
+                    <Component {...props} />
                 ) : (
                         <Redirect to={'/login'} />
                     )

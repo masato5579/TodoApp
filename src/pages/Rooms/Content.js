@@ -5,10 +5,13 @@ import styled from 'styled-components'
 const Content = () => {
     const [content, setContent] = useState(false)
 
-    //閉じる・開く
+
+
+
     const toggle = () => {
         setContent(!content)
     }
+
 
 
     return (
@@ -20,7 +23,11 @@ const Content = () => {
                         style={
                             { opacity: content ? '1.0' : '0.6' }
                         }>
-                        <p id="openContent">内容を開く</p>
+                        {
+                            content ?
+                                <p>内容を閉じる</p>
+                                : <p>内容を開く</p>
+                        }
                         <div id="clickopen">
                             <span id="clickopenLeft"></span>
                             <span id="clickopenRight"></span>
