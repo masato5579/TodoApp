@@ -50,6 +50,7 @@ const Login = ({ history }) => {
                             onChange={(e) => {
                                 setEmail(e.target.value)
                             }}
+                            autoComplete="off"
                         />
                     </div>
                     <div className="inputs">
@@ -62,6 +63,7 @@ const Login = ({ history }) => {
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
+                            autoComplete="off"
                         />
                     </div>
                     <BUTTON>

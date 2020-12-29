@@ -12,6 +12,7 @@ const SignUp = ({ history }) => {
     const [name, setName] = useState('')
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -20,13 +21,18 @@ const SignUp = ({ history }) => {
                 user.updateProfile({
                     displayName: name
                 })
-                history.push('/')
+                setTimeout(() => {
+                    history.push('/')
+                }, 1000
+                )
             })
+
 
             .catch(err => {
                 console.log(err)
                 alert('有効なメールアドレスまたはパスワードではありません。')
             })
+
     }
 
 
@@ -35,9 +41,9 @@ const SignUp = ({ history }) => {
         <>
             <SIGNUP>
                 <h1>To-Do List With Timer <br /> 会員登録</h1>
-                <form form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <p>下記を入力することで会員登録を行うことができます。</p>
-                    <div class="inputs">
+                    <div className="inputs">
                         <label htmlFor='name'>お名前</label>
                         <input
                             name='name'
@@ -47,9 +53,10 @@ const SignUp = ({ history }) => {
                             onChange={(e) => {
                                 setName(e.target.value)
                             }}
+                            autoComplete="off"
                         />
                     </div>
-                    <div class="inputs">
+                    <div className="inputs">
                         <label htmlFor='email'>メールアドレス</label>
                         <input
                             name='email'
@@ -59,9 +66,10 @@ const SignUp = ({ history }) => {
                             onChange={(e) => {
                                 setEmail(e.target.value)
                             }}
+                            autoComplete="off"
                         />
                     </div>
-                    <div class="inputs">
+                    <div className="inputs">
                         <label htmlFor='password'>パスワード</label>
                         <input
                             name='password'
@@ -71,6 +79,7 @@ const SignUp = ({ history }) => {
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
+                            autoComplete="off"
                         />
                     </div>
                     <BUTTON>

@@ -22,9 +22,9 @@ const App = () => {
         <AuthProvider>
             <Router>
                 <Switch>
+                    <LoggedInRoute exact path='/' component={Room} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
-                    <LoggedInRoute exact path='/' component={Room} />
                 </Switch>
             </Router>
         </AuthProvider>

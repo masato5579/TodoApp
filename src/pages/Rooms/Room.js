@@ -12,6 +12,7 @@ import List from './List'
 
 const Room = () => {
 
+    const user = useContext(AuthContext)
 
     //やること配列
     const [todos, setTodos] = useState([
@@ -70,8 +71,6 @@ const Room = () => {
 
     //ログインユーザーの取得
 
-    const user = useContext(AuthContext)
-
 
     console.log('Roomの中')
     console.log(user.displayName)
@@ -101,6 +100,7 @@ export default Room
 
 //全体を囲むwrap
 const WRAP = styled.section`
+    min-height:100vh;
     padding:20px 0;
     #user{
         width:95%;
